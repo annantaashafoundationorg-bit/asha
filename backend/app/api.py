@@ -17,8 +17,11 @@ from .schemas import (
     VerificationRecord,
 )
 from .services.tln_service import generate_tln_nodes, save_book_and_nodes
+router = APIRouter()
+
 from .routes.store import router as store_router
 router.include_router(store_router)
+
 from .services.learning_service import adapt_learning_path
 from .services.assessment_service import run_assessment
 from .services.asset_service import search_assets, register_asset
@@ -28,8 +31,6 @@ from .services.analytics_service import get_ngo_analytics, get_student_analytics
 from .services.reward_service import award_coins, get_wallet
 from .services.memory_service import store_memory
 from .services.verification_service import record_verification
-
-router = APIRouter()
 
 
 # ── Book transformation ──────────────────────────────────────
