@@ -1,0 +1,18 @@
+{
+  "currency": "Aasha Coin",
+  "coins_per_assessment_pass": 5,
+  "xp_per_node_complete": 10,
+  "levels": [
+    { "name": "Seedling", "min_xp": 0 },
+    { "name": "Learner", "min_xp": 100 },
+    { "name": "Explorer", "min_xp": 300 },
+    { "name": "Scholar", "min_xp": 600 },
+    { "name": "Champion", "min_xp": 1000 }
+  ],
+  "badges": {
+    "first_node": "First Steps",
+    "ten_nodes": "10 Nodes Mastered",
+    "perfect_score": "Perfect Score",
+    "simulation_master": "Simulation Master"
+  }
+}

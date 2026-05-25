@@ -1,0 +1,18 @@
+{
+  "engine": "aasha-combat-v1",
+  "types": ["combat", "adaptive", "simulation-linked"],
+  "default_type": "combat",
+  "combat": {
+    "question_count": 10,
+    "pass_threshold": 70,
+    "time_limit_seconds": 600
+  },
+  "adaptive": {
+    "min_questions": 5,
+    "max_questions": 20,
+    "pass_threshold": 70
+  },
+  "coins_on_pass": 5,
+  "xp_on_pass": 10,
+  "remediation_on_fail": true
+}

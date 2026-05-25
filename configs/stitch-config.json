@@ -1,0 +1,15 @@
+{
+  "tool": "stitch.withgoogle.com",
+  "usage": "Frontend UI idea generation and layout prototyping",
+  "target_framework": "Next.js + Tailwind",
+  "design_tokens": {
+    "bg": "#080e1c",
+    "panel": "#0f1a2e",
+    "accent": "#4f7dff",
+    "aasha": "#ff7043",
+    "text": "#e6eaff",
+    "muted": "#8a9cc8"
+  },
+  "font_display": "Fraunces",
+  "font_body": "DM Sans"
+}

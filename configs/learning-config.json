@@ -1,0 +1,16 @@
+{
+  "levels": ["beginner", "standard", "advanced"],
+  "default_level": "standard",
+  "sequences": {
+    "beginner": ["warmup", "guided_explanation", "visual", "practice", "remediate", "verify"],
+    "standard": ["warmup", "concept", "visual", "practice", "simulation", "verify"],
+    "advanced": ["concept", "simulation", "challenge", "peer_compare", "verify"]
+  },
+  "estimated_minutes": {
+    "beginner": 25,
+    "standard": 18,
+    "advanced": 12
+  },
+  "simulation_required_for": ["standard", "advanced"],
+  "remediation_threshold": 70
+}

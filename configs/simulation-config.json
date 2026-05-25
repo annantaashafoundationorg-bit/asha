@@ -1,0 +1,8 @@
+{
+  "reuse_before_generate": true,
+  "simulation_store": "/simulations",
+  "fallback_strategy": "generate_and_register",
+  "asset_types": ["simulation", "lottie", "svg"],
+  "generation_budget_per_node": 1,
+  "simulation_fallback_rate_target": 0.10
+}

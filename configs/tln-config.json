@@ -1,0 +1,9 @@
+{
+  "node_id_prefix": "tln",
+  "concept_max_chars": 200,
+  "default_assessment_hooks": ["mcq", "scenario", "simulation-linked"],
+  "default_language": "en",
+  "supported_languages": ["en", "ta", "hi", "te"],
+  "dependency_mode": "sequential",
+  "memory_tag_strategy": "book_and_chapter"
+}

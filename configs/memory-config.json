@@ -1,0 +1,8 @@
+{
+  "backend": "in-memory",
+  "production_backend": "chromadb",
+  "ttl_days": 90,
+  "memory_kinds": ["book_transform", "learning_session", "assessment_result", "simulation_run"],
+  "tag_strategy": "semantic_union",
+  "max_tags_per_student": 200
+}

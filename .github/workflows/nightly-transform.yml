@@ -1,0 +1,39 @@
+name: Nightly Transform
+
+on:
+  schedule:
+    - cron: "0 1 * * *"   # 01:00 UTC / 06:30 IST nightly
+  workflow_dispatch:
+
+jobs:
+  transform:
+    name: Nightly book transformation + asset sync
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install httpx
+
+      - name: Sync simulation registry
+        run: python -m pipelines.sync_simulations
+
+      - name: Seed asset registry (if API is running)
+        env:
+          AASHA_API_URL: ${{ secrets.AASHA_API_URL }}
+        run: |
+          if [ -n "$AASHA_API_URL" ]; then
+            python scripts/seed_asset_registry.py --api $AASHA_API_URL
+          else
+            echo "AASHA_API_URL not set — skipping live seed"
+          fi
+
+      - name: Notify on failure
+        if: failure()
+        run: echo "Nightly transform failed — alert NGO ops team"

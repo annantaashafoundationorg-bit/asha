@@ -1,0 +1,62 @@
+{
+  "description": "Master prompt pack for AASHA AI TEAS — Annanth Aasha Foundation",
+  "version": "1.0.0",
+  "prompts": [
+    {
+      "id": "prompt-01-tln-generation",
+      "target": "pipelines/generate_tln.py",
+      "use_case": "TLN node generation from chapter content",
+      "model": "gemini-2.5-pro",
+      "instruction": "Given a chapter title, content, grade, and subject, generate a structured TLN concept summary as JSON: { concept_summary, key_terms, learning_outcomes, simulation_suggestions }. Respond ONLY with valid JSON."
+    },
+    {
+      "id": "prompt-02-asset-search",
+      "target": "agents/asset_reuse_agent.py",
+      "use_case": "Semantic asset matching",
+      "model": "gemini-2.5-pro",
+      "instruction": "Given a TLN node title and concept, return the best matching asset_id from the registry or null if none match. Respond ONLY with JSON: { asset_id, confidence, reason }."
+    },
+    {
+      "id": "prompt-03-assessment-generation",
+      "target": "assessments/",
+      "use_case": "Combat assessment question generation",
+      "model": "gemini-2.5-pro",
+      "instruction": "Generate 10 MCQ + scenario questions for a TLN node. Include: question, options (A-D), correct_answer, explanation, weakness_tag. Respond ONLY with a JSON array."
+    },
+    {
+      "id": "prompt-04-learning-path",
+      "target": "agents/learning_agent.py",
+      "use_case": "Adaptive learning sequence personalisation",
+      "model": "gemini-2.5-pro",
+      "instruction": "Given a student's memory tags and weakness tags, suggest a personalised learning sequence for a TLN node. Return JSON: { sequence, estimated_minutes, simulation_required, remediation_nodes }."
+    },
+    {
+      "id": "prompt-05-simulation-suggestion",
+      "target": "agents/simulation_agent.py",
+      "use_case": "Simulation type suggestion when no reusable asset is found",
+      "model": "gemini-2.5-pro",
+      "instruction": "Given a TLN node title and concept, suggest the best simulation type to generate if no reusable asset exists. Return JSON: { simulation_type, description, interaction_hints }."
+    },
+    {
+      "id": "prompt-06-impact-summary",
+      "target": "analytics/",
+      "use_case": "NGO impact narrative generation",
+      "model": "gemini-2.5-pro",
+      "instruction": "Given NGO analytics data, write a 2-3 sentence impact summary for Annanth Aasha Foundation's quarterly report. Focus on student reach, reuse rate, and verified records. Respond as plain text."
+    },
+    {
+      "id": "prompt-07-multilingual-content",
+      "target": "backend/app/services/tln_service.py",
+      "use_case": "TLN node concept translation",
+      "model": "gemini-2.5-pro",
+      "instruction": "Translate a TLN concept summary into the target language (Tamil/Hindi/Telugu). Preserve educational meaning and grade-appropriate vocabulary. Respond with ONLY the translated concept text."
+    },
+    {
+      "id": "prompt-08-remediation-design",
+      "target": "agents/assessment_agent.py",
+      "use_case": "Remediation path design for failed assessments",
+      "model": "gemini-2.5-pro",
+      "instruction": "Given a student's weakness_tags and failed node_id, suggest a remediation path. Return JSON: { remediation_nodes, exercises, estimated_minutes, re_assessment_recommended }."
+    }
+  ]
+}
