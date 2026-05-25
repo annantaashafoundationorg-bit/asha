@@ -9,9 +9,11 @@
 # Exit on any error
 set -e
 
+BASE_DIR="$(cd "$(dirname "$0")" && pwd)"
+
 # ---------- Backend ----------
 echo "Starting FastAPI backend..."
-cd "$(dirname "$0")/backend"
+cd "$BASE_DIR/backend"
 # Activate virtual environment if present
 if [ -d ".venv" ]; then
   source .venv/Scripts/activate
@@ -19,13 +21,13 @@ fi
 # Install dependencies (idempotent)
 python -m pip install -r requirements.txt > /dev/null
 # Start FastAPI (background) – will auto‑reload on changes
-# Note: main app lives in app/main.py
-uvicorn app.main:app --reload &
+# Note: main app lives in main.py
+uvicorn main:app --reload &
 BACKEND_PID=$!
 
 # ---------- Frontend ----------
 echo "Starting frontend (Vite/Next)..."
-cd "$(dirname "$0")/frontend"
+cd "$BASE_DIR/frontend"
 # Install npm deps if missing
 if [ ! -d "node_modules" ]; then
   npm install

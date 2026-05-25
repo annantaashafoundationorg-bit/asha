@@ -1,7 +1,7 @@
 import uuid
 from datetime import datetime
 from sqlalchemy import Column, String, Integer, Boolean, DateTime
-from .database import Base
+from ..database import Base
 
 class StoreItem(Base):
     __tablename__ = "store_items"
